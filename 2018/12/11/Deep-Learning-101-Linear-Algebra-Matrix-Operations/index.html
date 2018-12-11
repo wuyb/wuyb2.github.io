@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>矩阵的基本操作 | 很想说，却又没有什么话好说</title>
+
+  
+  <meta name="author" content="J">
+  
+
+  
+  <meta name="description" content="本文简单介绍了深度学习中用到的矩阵的基本操作，包括转置，矩阵与标量、向量、矩阵的加法和乘法。">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="矩阵的基本操作">
+
+  <meta property="og:site_name" content="很想说，却又没有什么话好说">
+
+  
+  <meta property="og:image" content="/favicon.ico">
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="很想说，却又没有什么话好说" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">很想说，却又没有什么话好说</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>矩阵的基本操作</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/12/11/Deep-Learning-101-Linear-Algebra-Matrix-Operations/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-12-11T08:05:06.000Z">
+          2018-12-11
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>本文简单介绍了深度学习中用到的矩阵的基本操作，包括转置，矩阵与标量、向量、矩阵的加法和乘法。</p>
+<a id="more"></a>
+<h3 id="转置-（Transpose）"><a href="#转置-（Transpose）" class="headerlink" title="转置 （Transpose）"></a>转置 （Transpose）</h3><p>首先需要定义<strong>主对角线（Main Diagonal）</strong>的概念。所谓主对角线，即从矩阵的左上到右下的一条45度的对角线。而转置，即是以主对角线为轴，将矩阵做一个镜像变换。这个操作记做 $A^\top$ 。直观理解，就是行变成列，列变成行。</p>
+<p>$$(A^\top)<em>{i,j}=A</em>{j, i}$$</p>
+<h3 id="加法"><a href="#加法" class="headerlink" title="加法"></a>加法</h3><p>当两个矩阵的大小一样时（即行列数均相等），我们可以将矩阵进行直接加法运算。<br>$$C = A + B, 其中 C_{i,j}=A_{i,j} + B_{i,j} $$</p>
+<p>矩阵与标量的加法，即矩阵的每个元素均与标量相加。<br>$$B = A + b, 其中 B_{i,j}=A_{i,j} + b$$</p>
+<p>矩阵与向量的加法，即矩阵的每一行均与向量相加。<br>$$B_{i,j}=A_{i,j} + {\bf b}_j$$</p>
+<h3 id="乘法-重要"><a href="#乘法-重要" class="headerlink" title="乘法 (重要)"></a>乘法 (重要)</h3><p>矩阵与标量的乘法，即用矩阵中的每个元素乘以标量。<br>$$B = A \times b, 其中 B_{i,j}=A_{i,j} \times b$$</p>
+<p>矩阵与矩阵的乘法并不适用于任意两个矩阵，为了使乘法可以被定义，约定 $$A$$ 的列数必须与 $$B$$ 的行数相等。即形如 $$A_{m \times n}$$ 和 $$B_{n \times p}$$ 的两个矩阵是可以相乘的，结果是一个 $$n \times p$$ 的矩阵。矩阵乘法的数学定义是<br>$$C_{i,j} = \sum_{k}A_{i,k}B_{k,j}$$</p>
+<p>矩阵的乘法满足分配律和结合律，但是不满足交换律（从定义可以简单推出）。</p>
+<p>矩阵的乘法可以理解为，结果矩阵的元素 $$C_{i,j}$$ 是 $$A_{i:}$$（第$$i$$行） 和 $$B_{:j}$$ （第$$j$$列）的点积 (dot product)。两个向量的点积即对应元素的乘积之和。向量的点积（$${\bf a \times b}$$）可以看作是矩阵乘积 $${\bf a^\top b}$$（点积的计算是满足交换律的）。</p>
+<p>矩阵乘积的转置定义如下<br>$$(AB)^\top=B^\top A^\top$$</p>
+<p>矩阵与向量的乘积，可以看作是 $$m\times n$$的矩阵 $$A_{m\times n}$$ 与一个 $$x_{n\times 1}$$的矩阵的乘积，我们把这个操作写作<br>$${\bf Ax=b}$$，其中$$A$$为已知矩阵，$$\bf b$$为已知的$$m$$维向量(即$$m\times 1$$矩阵)，$$x_{n\times1}$$为未知向量。</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/线性代数/">线性代数</a>, <a href="/categories/线性代数/深度学习/">深度学习</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    <br>
+    
+    &copy; 2018 J
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>
