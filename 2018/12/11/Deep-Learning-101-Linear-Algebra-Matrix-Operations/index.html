@@ -1,12 +1,12 @@
 <!DOCTYPE HTML>
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
   <title>矩阵的基本操作 | 很想说，却又没有什么话好说</title>
 
   
-  <meta name="author" content="J">
+  <meta name="author" content="Joey">
   
 
   
@@ -32,12 +32,12 @@
 
   <link href="/favicon.ico" rel="icon">
   <link rel="alternate" href="/atom.xml" title="很想说，却又没有什么话好说" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 
 <body>
-<div class="blog">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="blog">
   <div class="content">
 
     <header>
@@ -88,16 +88,16 @@
         <p>本文简单介绍了深度学习中用到的矩阵的基本操作，包括转置，矩阵与标量、向量、矩阵的加法和乘法。</p>
 <a id="more"></a>
 <h3 id="转置-（Transpose）"><a href="#转置-（Transpose）" class="headerlink" title="转置 （Transpose）"></a>转置 （Transpose）</h3><p>首先需要定义<strong>主对角线（Main Diagonal）</strong>的概念。所谓主对角线，即从矩阵的左上到右下的一条45度的对角线。而转置，即是以主对角线为轴，将矩阵做一个镜像变换。这个操作记做 $A^\top$ 。直观理解，就是行变成列，列变成行。</p>
-<p>$$(A^\top)<em>{i,j}=A</em>{j, i}$$</p>
-<h3 id="加法"><a href="#加法" class="headerlink" title="加法"></a>加法</h3><p>当两个矩阵的大小一样时（即行列数均相等），我们可以将矩阵进行直接加法运算。<br>$$C = A + B, 其中 C_{i,j}=A_{i,j} + B_{i,j} $$</p>
-<p>矩阵与标量的加法，即矩阵的每个元素均与标量相加。<br>$$B = A + b, 其中 B_{i,j}=A_{i,j} + b$$</p>
-<p>矩阵与向量的加法，即矩阵的每一行均与向量相加。<br>$$B_{i,j}=A_{i,j} + {\bf b}_j$$</p>
-<h3 id="乘法-重要"><a href="#乘法-重要" class="headerlink" title="乘法 (重要)"></a>乘法 (重要)</h3><p>矩阵与标量的乘法，即用矩阵中的每个元素乘以标量。<br>$$B = A \times b, 其中 B_{i,j}=A_{i,j} \times b$$</p>
-<p>矩阵与矩阵的乘法并不适用于任意两个矩阵，为了使乘法可以被定义，约定 $$A$$ 的列数必须与 $$B$$ 的行数相等。即形如 $$A_{m \times n}$$ 和 $$B_{n \times p}$$ 的两个矩阵是可以相乘的，结果是一个 $$n \times p$$ 的矩阵。矩阵乘法的数学定义是<br>$$C_{i,j} = \sum_{k}A_{i,k}B_{k,j}$$</p>
-<p>矩阵的乘法满足分配律和结合律，但是不满足交换律（从定义可以简单推出）。</p>
-<p>矩阵的乘法可以理解为，结果矩阵的元素 $$C_{i,j}$$ 是 $$A_{i:}$$（第$$i$$行） 和 $$B_{:j}$$ （第$$j$$列）的点积 (dot product)。两个向量的点积即对应元素的乘积之和。向量的点积（$${\bf a \times b}$$）可以看作是矩阵乘积 $${\bf a^\top b}$$（点积的计算是满足交换律的）。</p>
-<p>矩阵乘积的转置定义如下<br>$$(AB)^\top=B^\top A^\top$$</p>
-<p>矩阵与向量的乘积，可以看作是 $$m\times n$$的矩阵 $$A_{m\times n}$$ 与一个 $$x_{n\times 1}$$的矩阵的乘积，我们把这个操作写作<br>$${\bf Ax=b}$$，其中$$A$$为已知矩阵，$$\bf b$$为已知的$$m$$维向量(即$$m\times 1$$矩阵)，$$x_{n\times1}$$为未知向量。</p>
+<script type="math/tex; mode=display">(A^\top)_{i,j}=A_{j, i}</script><h3 id="加法"><a href="#加法" class="headerlink" title="加法"></a>加法</h3><p>当两个矩阵的大小一样时（即行列数均相等），我们可以将矩阵进行直接加法运算。</p>
+<script type="math/tex; mode=display">C = A + B, 其中 C_{i,j}=A_{i,j} + B_{i,j}</script><p>矩阵与标量的加法，即矩阵的每个元素均与标量相加。</p>
+<script type="math/tex; mode=display">B = A + b, 其中 B_{i,j}=A_{i,j} + b</script><p>矩阵与向量的加法，即矩阵的每一行均与向量相加。</p>
+<script type="math/tex; mode=display">B_{i,j}=A_{i,j} + {\bf b}_j</script><h3 id="乘法-重要"><a href="#乘法-重要" class="headerlink" title="乘法 (重要)"></a>乘法 (重要)</h3><p>矩阵与标量的乘法，即用矩阵中的每个元素乘以标量。</p>
+<script type="math/tex; mode=display">B = A \times b, 其中 B_{i,j}=A_{i,j} \times b</script><p>矩阵与矩阵的乘法并不适用于任意两个矩阵，为了使乘法可以被定义，约定 <script type="math/tex">A</script> 的列数必须与 <script type="math/tex">B</script> 的行数相等。即形如 <script type="math/tex">A_{m \times n}</script> 和 <script type="math/tex">B_{n \times p}</script> 的两个矩阵是可以相乘的，结果是一个 <script type="math/tex">n \times p</script> 的矩阵。矩阵乘法的数学定义是</p>
+<script type="math/tex; mode=display">C_{i,j} = \sum_{k}A_{i,k}B_{k,j}</script><p>矩阵的乘法满足分配律和结合律，但是不满足交换律（从定义可以简单推出）。</p>
+<p>矩阵的乘法可以理解为，结果矩阵的元素 <script type="math/tex">C_{i,j}</script> 是 <script type="math/tex">A_{i:}</script>（第<script type="math/tex">i</script>行） 和 <script type="math/tex">B_{:j}</script> （第<script type="math/tex">j</script>列）的点积 (dot product)。两个向量的点积即对应元素的乘积之和。向量的点积（<script type="math/tex">{\bf a \times b}</script>）可以看作是矩阵乘积 <script type="math/tex">{\bf a^\top b}</script>（点积的计算是满足交换律的）。</p>
+<p>矩阵乘积的转置定义如下</p>
+<script type="math/tex; mode=display">(AB)^\top=B^\top A^\top</script><p>矩阵与向量的乘积，可以看作是 <script type="math/tex">m\times n</script>的矩阵 <script type="math/tex">A_{m\times n}</script> 与一个 <script type="math/tex">x_{n\times 1}</script>的矩阵的乘积，我们把这个操作写作</p>
+<p><script type="math/tex">{\bf Ax=b}</script>，其中<script type="math/tex">A</script>为已知矩阵，<script type="math/tex">\bf b</script>为已知的<script type="math/tex">m</script>维向量(即<script type="math/tex">m\times 1</script>矩阵)，<script type="math/tex">x_{n\times1}</script>为未知向量。</p>
 
       
     </div>
@@ -136,12 +136,27 @@
     Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
     <br>
     
-    &copy; 2018 J
+    &copy; 2018 Joey
     
   </p>
 </footer>
     
   </div>
 </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
